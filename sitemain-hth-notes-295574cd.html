@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 轻量导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f4ef;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2e2b28;
+      line-height: 1.6;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fcfaf7;
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    /* 顶部导航 */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #e6dfd6;
+      margin-bottom: 2.2rem;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+    }
+    .nav-brand {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #3f3a35;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #5a544e;
+      font-size: 0.95rem;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #a1623b;
+      border-bottom-color: #a1623b;
+    }
+    .nav-links a.active {
+      color: #2e2b28;
+      border-bottom-color: #b98a6b;
+      font-weight: 500;
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: left;
+      padding: 0.8rem 0 2rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #1f1c1a;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.3px;
+    }
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #6b625a;
+      max-width: 580px;
+      margin-bottom: 1.4rem;
+    }
+    .hero .meta-note {
+      display: inline-block;
+      background: #ebe5dc;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #4d453e;
+    }
+
+    /* 引用块 / 提示框 */
+    .callout {
+      background: #f3eee7;
+      border-left: 5px solid #b98a6b;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.98rem;
+      color: #3f3832;
+    }
+    .callout strong {
+      color: #7a5f4a;
+    }
+    .callout a {
+      color: #7a5f4a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .callout a:hover {
+      color: #a1623b;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+    .scene-card {
+      background: #f9f6f1;
+      padding: 1.4rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid #e8e0d6;
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+    .scene-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #3a332e;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .scene-card h3 span {
+      font-size: 1.3rem;
+    }
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #55504a;
+      margin-bottom: 0.3rem;
+    }
+    .scene-card .tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #8c7a6b;
+      background: #efe9e1;
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* FAQ 摘要 — 常见说明 */
+    .faq-section {
+      margin: 2.5rem 0 1.2rem;
+    }
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2e2b28;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #b98a6b;
+      padding-left: 1rem;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed #e2d9cf;
+    }
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #3f3832;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .faq-a {
+      color: #5b534b;
+      font-size: 0.94rem;
+      padding-left: 0.8rem;
+      border-left: 2px solid #ddd5cb;
+    }
+    .faq-a a {
+      color: #7a5f4a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .faq-a a:hover {
+      color: #a1623b;
+    }
+    .faq-more {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #6b625a;
+      margin-top: 0.6rem;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e6dfd6;
+      font-size: 0.85rem;
+      color: #7d756c;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .footer-note a {
+      color: #5f554b;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc3b8;
+    }
+    .footer-note a:hover {
+      color: #a1623b;
+      border-bottom-color: #a1623b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      body { padding: 1.2rem; }
+      .container { padding: 1.6rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .scenes-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .nav-bar { flex-direction: column; align-items: flex-start; }
+      .nav-links { width: 100%; justify-content: flex-start; gap: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 1.2rem; }
+      .callout { padding: 0.8rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 导航栏 -->
+  <nav class="nav-bar">
+    <div class="nav-brand">华体会</div>
+    <div class="nav-links">
+      <a href="#" class="active">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">收藏</a>
+    </div>
+  </nav>
+
+  <!-- hero 主介绍 -->
+  <div class="hero">
+    <h1>再次回到这里</h1>
+    <div class="subhead">每一次访问都值得被记住——轻量入口，稳定索引。</div>
+    <div class="meta-note">持续关注 · 常看常新</div>
+  </div>
+
+  <!-- 提示框 / 引用块 —— 自然嵌入链接 -->
+  <div class="callout">
+    <strong>▎收藏提示</strong><br>
+    如果你希望日后快速找回这个信息页，不妨将 <a href="https://sitemain-hth.com.cn">华体会</a> 加入浏览器书签。  
+    简洁的导航结构让再次访问变得直接，无需在多个页面间反复跳转。
+  </div>
+
+  <!-- 三个场景模块：再次访问 / 持续关注 / 信息锚点 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <h3><span>📂</span> 再次访问</h3>
+      <p>通过固定入口直达核心内容，减少检索成本。适合需要周期性查阅信息的用户。</p>
+      <span class="tag">快捷路径</span>
+    </div>
+    <div class="scene-card">
+      <h3><span>🔖</span> 收藏留存</h3>
+      <p>将链接存入收藏夹或笔记工具，形成个人信息锚点。适合研究、比对或长期观察。</p>
+      <span class="tag">个人知识库</span>
+    </div>
+    <div class="scene-card">
+      <h3><span>👁️</span> 持续关注</h3>
+      <p>不定期回访可捕捉页面内容的演变与更新，适用于对信息迭代敏感的场景。</p>
+      <span class="tag">动态追踪</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要：常见说明 -->
+  <div class="faq-section">
+    <h2>常见说明</h2>
+    <div class="faq-item">
+      <div class="faq-q">这个页面是做什么的？</div>
+      <div class="faq-a">一个轻量导航式介绍页，围绕「<a href="https://sitemain-hth.com.cn">华体会</a>」提供结构化的信息入口。没有复杂交互，侧重内容组织与快速定位。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何保持长期可用？</div>
+      <div class="faq-a">建议使用书签或笔记工具收藏本页。若页面结构有调整，仍可通过主链接 <a href="https://sitemain-hth.com.cn">华体会</a> 获取最新信息。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容会更新吗？</div>
+      <div class="faq-a">信息方向保持稳定，但会根据需要调整场景模块与说明细节。再次访问时即可感知变化。</div>
+    </div>
+    <div class="faq-more">—— 更多说明 · 以实际页面为准</div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>© 轻量导航 · 信息聚合</span>
+    <span><a href="https://sitemain-hth.com.cn">华体会</a> · 建议收藏</span>
+  </div>
+</div>
+</body>
+</html>
