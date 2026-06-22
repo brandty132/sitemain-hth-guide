@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+  <title>雷火电竞 · 再次相遇的入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: #faf7f2;   /* 米白基调 */
+      color: #2b2b2b;
+      line-height: 1.65;
+      padding: 2rem 1.2rem;
+    }
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fffcf8;
+      border-radius: 24px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.04), 0 2px 8px rgba(100,70,40,0.06);
+      padding: 2.6rem 2rem 3rem;
+    }
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 2.2rem 0.8rem 1.8rem;
+      border-bottom: 1px solid #eae3d8;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #2f2a24;
+      margin-bottom: 0.6rem;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #6b6258;
+      max-width: 580px;
+      margin: 0 auto;
+      background: #f3eee8;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 380;
+      letter-spacing: 0.3px;
+    }
+    .hero .tagline {
+      margin-top: 1.8rem;
+      font-size: 1.05rem;
+      color: #4e4840;
+      background: #f8f4ee;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid #cbb29a;
+      text-align: left;
+      inline-size: fit-content;
+      margin-inline: auto;
+      max-width: 90%;
+    }
+    .hero .tagline strong {
+      font-weight: 540;
+      color: #3b332c;
+    }
+
+    /* 优势区 — 三卡片式 */
+    .strength-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.8rem 0 2.2rem;
+      justify-content: center;
+    }
+    .strength-card {
+      flex: 1 1 180px;
+      min-width: 140px;
+      background: #fcf9f5;
+      border: 1px solid #e6ddd2;
+      border-radius: 20px;
+      padding: 1.6rem 1rem 1.2rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .strength-card:hover {
+      border-color: #cbb39e;
+      background: #fdfbf8;
+      box-shadow: 0 6px 14px rgba(80,60,40,0.06);
+    }
+    .strength-card .emoji-badge {
+      font-size: 1.7rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .strength-card h3 {
+      font-size: 1.2rem;
+      font-weight: 520;
+      color: #3f3831;
+      margin: 0.5rem 0 0.3rem;
+    }
+    .strength-card p {
+      font-size: 0.92rem;
+      color: #5f574e;
+      line-height: 1.5;
+    }
+
+    /* 说明区 — 文章段落 */
+    .detail-section {
+      margin: 2.5rem 0 2rem;
+      border-top: 1px dashed #ddd5ca;
+      padding-top: 2.2rem;
+    }
+    .detail-section h2 {
+      font-size: 1.5rem;
+      font-weight: 480;
+      color: #36302a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+    .detail-section p {
+      margin-bottom: 1.2rem;
+      color: #3e3a35;
+    }
+    .detail-section .pull-quote {
+      background: #f3ede6;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1.6rem 0;
+      font-style: normal;
+      border-left: 6px solid #b8a38f;
+      color: #2f2a24;
+      font-size: 0.98rem;
+    }
+    .detail-section .pull-quote strong {
+      font-weight: 570;
+    }
+
+    /* FAQ 摘要 — 紧凑对话形式 */
+    .faq-digest {
+      margin: 2.8rem 0 2rem;
+      background: #f7f2ea;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+    }
+    .faq-digest h2 {
+      font-size: 1.3rem;
+      font-weight: 480;
+      color: #36302a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .faq-item {
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid #e1d7cb;
+      padding-bottom: 0.7rem;
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 510;
+      color: #2d2822;
+      margin-bottom: 0.2rem;
+      display: flex;
+      gap: 6px;
+    }
+    .faq-q::before {
+      content: "Q·";
+      color: #9e8a78;
+      font-weight: 400;
+    }
+    .faq-a {
+      font-size: 0.93rem;
+      color: #5a5249;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .faq-a::before {
+      content: "A·";
+      position: absolute;
+      left: 0;
+      color: #a48f7c;
+    }
+
+    /* 底部链接 */
+    .footer-link-area {
+      margin-top: 2.8rem;
+      padding: 1.5rem 0 0.8rem;
+      border-top: 1px solid #e7dfd4;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5d554c;
+    }
+    .footer-link-area a {
+      color: #4f4034;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7a593;
+      transition: border 0.2s;
+      font-weight: 480;
+    }
+    .footer-link-area a:hover {
+      border-bottom: 1px solid #4f4034;
+    }
+    .footer-note {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: #8d8379;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .page {
+        padding: 1.6rem 1rem 2rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+        padding: 0.3rem 1rem;
+      }
+      .strength-card {
+        flex: 1 1 100%;
+        max-width: 300px;
+      }
+      .detail-section h2 {
+        font-size: 1.3rem;
+      }
+      .faq-digest {
+        padding: 1.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .hero .tagline {
+        font-size: 0.92rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+      <h1>雷火电竞 · 常来常新</h1>
+      <span class="sub">收藏这个角落 · 每一次都有新内容</span>
+      <div class="tagline">
+        <strong>📌 再次访问的理由</strong> — 这里不是一次性的页面，而是你随时可以回来的站点。内容持续更新，界面也在悄悄优化。
+      </div>
+    </div>
+
+    <!-- 优势区：三卡片 -->
+    <div class="strength-grid">
+      <div class="strength-card">
+        <span class="emoji-badge">🔄</span>
+        <h3>常回常新</h3>
+        <p>首页会不定期调整栏目和焦点，每次回来都可能发现不一样的信息布局或新的提示，保持适度的新鲜感。</p>
+      </div>
+      <div class="strength-card">
+        <span class="emoji-badge">📑</span>
+        <h3>轻松收藏</h3>
+        <p>不需要刻意记忆，把链接加入书签或收藏夹就好。下次想了解相关动态时，随时可以打开翻看。</p>
+      </div>
+      <div class="strength-card">
+        <span class="emoji-badge">🧭</span>
+        <h3>持续关注</h3>
+        <p>通过简单的页面结构，快速了解当前版本的话题与功能。适合作为轻量信息锚点，偶尔回来看看。</p>
+      </div>
+    </div>
+
+    <!-- 说明区：文章体，关于再次访问与关注 -->
+    <div class="detail-section">
+      <h2>为什么值得再打开一次？</h2>
+      <p>
+        很多人习惯把感兴趣的页面存起来，想着“以后再看”，但往往一存就再也没打开过。<strong>我们希望能打破这个循环</strong>。
+        所以这个首页被设计成一种“轻量站点”——没有复杂的导航，但不代表内容一成不变。从简短的介绍到常见问题，都可能随着时间进行微调。
+      </p>
+      <div class="pull-quote">
+        <strong>📌 一个小习惯：</strong> 每隔几周回到 <a href="https://index-leihouesports.com">雷火电竞</a> 页面，看看是否有新的说明或调整。也许只是一个措辞的变化，也许会发现意想不到的补充信息。
+      </div>
+      <p>
+        收藏夹里的网站很多，但真正会反复点开的并不多。我们希望通过克制的更新和干净的文字排版，让这个页面成为你想起来时就会点开看看的地方。不是因为它推送了什么，而是因为它一直安静地在那里，内容自己会说话。
+      </p>
+      <p style="margin-bottom:0.3rem;">
+        没有弹窗，没有催促。只有一段段文字、几张卡片、几组问答——适合你在茶歇、通勤或任何零碎时间里随便翻翻。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-digest">
+      <h2>❓ 常见疑问 · 摘要</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">这个页面会经常变吗？</div>
+        <div class="faq-a">不会频繁改动，但会不定期更新部分文案、卡片顺序或 FAQ 条目，让每次回访都有一点点不同。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">需要注册或登录吗？</div>
+        <div class="faq-a">不需要。这是一个公开介绍页，直接打开即可浏览，无需任何身份验证。保持简单。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">如何快速回到这里？</div>
+        <div class="faq-a">把当前页面加入浏览器书签或手机收藏夹。也可以记住“雷火电竞”这个名字，通过搜索再次找到。</div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:none;">
+        <div class="faq-q">和其他同类页面有什么不同？</div>
+        <div class="faq-a">更偏向于“可反复阅读的落地页”而非一次性广告页。内容密度适中，风格接近个人站点或短文存档。</div>
+      </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-link-area">
+      <p>如果你还没来过，或者想再确认一下，可以直接前往 <a href="https://index-leihouesports.com">雷火电竞</a> 首页。</p>
+      <p class="footer-note">页面内容仅供参考 · 保持开放与克制</p>
+    </div>
+
+  </div>
+</body>
+</html>
